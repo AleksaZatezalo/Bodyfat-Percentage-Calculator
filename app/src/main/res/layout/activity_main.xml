@@ -7,10 +7,118 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Bodyfat Percentage Calculation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.772" />
+
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="113dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="73dp"
+        android:text="Calculate"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isMale" />
+
+    <Switch
+        android:id="@+id/isFemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Female"
+        app:layout_constraintBottom_toTopOf="@+id/isMale"
+        app:layout_constraintTop_toBottomOf="@+id/height"
+        tools:layout_editor_absoluteX="159dp" />
+
+    <Switch
+        android:id="@+id/isMale"
+        android:layout_width="93dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="Male"
+        app:layout_constraintBottom_toTopOf="@+id/calculate"
+        app:layout_constraintTop_toBottomOf="@+id/isFemale"
+        tools:layout_editor_absoluteX="159dp" />
+
+    <EditText
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="9dp"
+        android:ems="10"
+        android:hint="Height (cm)"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/isFemale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waistWidth" />
+
+    <EditText
+        android:id="@+id/waistWidth"
+        android:layout_width="212dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint="Waist circumference (cm)"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/height"
+        app:layout_constraintTop_toBottomOf="@+id/hipWidth"
+        tools:layout_editor_absoluteX="106dp" />
+
+    <EditText
+        android:id="@+id/hipWidth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="106dp"
+        android:ems="10"
+        android:hint="Hip circumference (cm)"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/waistWidth"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="98dp"
+        android:text="Body Fat Percetnage Calculator"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/hipWidth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
