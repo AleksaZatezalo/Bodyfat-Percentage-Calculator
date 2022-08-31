@@ -3,6 +3,7 @@ package com.example.bodyfatpercentagecalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 String sHeight = height.getText().toString();
                 String sNeck = neck.getText().toString();
 
+                int nWaist;
+                int nHip;
+                int nHeight;
+                int nNeck;
+
+
                 if (isFemale.isChecked()){
                     if (sWaist.matches("") | sHip.matches("") |
                             sHeight.matches("") | sNeck.matches("")) {
@@ -83,11 +90,21 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (isMale.isChecked()){
-                    if (sHip.matches("") | sHeight.matches("") | sNeck.matches("")) {
-                        Toast.makeText(getApplicationContext(), "Neck, Hip, and Height Required.",
+                    if (sWaist.matches("") | sHeight.matches("") | sNeck.matches("")) {
+                        Toast.makeText(getApplicationContext(), "Neck, Waist, and Height Required.",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        result.setText("12");
+                        try {
+                            nWaist = Integer.parseInt(sWaist);
+                            nNeck = Integer.parseInt(sNeck);
+                            nHeight = Integer.parseInt(sHeight);
+                            double bfPercent = (86.01 * Math.log10(nWaist - nNeck) -
+                                    (70.041 * Math.log10(nHeight)) + 36.76);
+                            result.setText((bfPercent) + "%");
+                        } catch(NumberFormatException nfe) {
+                            System.out.println("Could not parse " + nfe);
+                        }
+
                     }
                 }
 
