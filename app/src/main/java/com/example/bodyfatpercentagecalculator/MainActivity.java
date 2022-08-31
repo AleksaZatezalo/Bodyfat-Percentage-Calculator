@@ -10,6 +10,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    EditText neck;
     EditText waist;
     EditText height;
     EditText hip;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         // getting all items
+        neck = findViewById(R.id.neckWidth);
         waist = findViewById(R.id.waistWidth);
         hip = findViewById(R.id.hipWidth);
         height = findViewById(R.id.height);
@@ -68,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 String sWaist = waist.getText().toString();
                 String sHip = hip.getText().toString();
                 String sHeight = height.getText().toString();
+                String sNeck = neck.getText().toString();
 
                 if (isFemale.isChecked()){
-                    if (sWaist.matches("") | sHip.matches("") | sHeight.matches("")) {
-                        Toast.makeText(getApplicationContext(), "Fill Out Waist, Hip, and Height.",
+                    if (sWaist.matches("") | sHip.matches("") |
+                            sHeight.matches("") | sNeck.matches("")) {
+                        Toast.makeText(getApplicationContext(), "All measurements required.",
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         result.setText("11");
@@ -79,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (isMale.isChecked()){
-                    if (sHip.matches("") | sHeight.matches("")) {
-                        Toast.makeText(getApplicationContext(), "Fill Out Hip, and Height.",
+                    if (sHip.matches("") | sHeight.matches("") | sNeck.matches("")) {
+                        Toast.makeText(getApplicationContext(), "Neck, Hip, and Height Required.",
                                 Toast.LENGTH_SHORT).show();
                     } else {
                         result.setText("12");
