@@ -1,4 +1,4 @@
-package com.example.bodyfatpercentagecalculator;
+package com.aleksa.BodyFatCalc;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.bodyfatpercentagecalculator", appContext.getPackageName());
+        assertEquals("com.aleksa.BodyFatCalc", appContext.getPackageName());
     }
 }

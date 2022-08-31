@@ -1,4 +1,4 @@
-package com.example.bodyfatpercentagecalculator;
+package com.aleksa.BodyFatCalc;
 
 import org.junit.Test;
 

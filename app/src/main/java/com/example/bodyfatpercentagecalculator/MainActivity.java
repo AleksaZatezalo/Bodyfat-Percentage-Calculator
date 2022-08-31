@@ -1,4 +1,4 @@
-package com.example.bodyfatpercentagecalculator;
+package com.aleksa.BodyFatCalc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -85,7 +85,20 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "All measurements required.",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        result.setText("11");
+                        try {
+                            nWaist = Integer.parseInt(sWaist);
+                            nNeck = Integer.parseInt(sNeck);
+                            nHeight = Integer.parseInt(sHeight);
+                            nHip = Integer.parseInt(sHip);
+                            double bfPercent = (86.01 * Math.log10(nWaist + nHip - nNeck) -
+                                    (70.041 * Math.log10(nHeight)) + 36.76);
+                            result.setText((bfPercent) + "%");
+                        } catch(NumberFormatException nfe) {
+                            System.out.println("Could not parse " + nfe);
+                            Toast.makeText(getApplicationContext(), "Round to Nearest cm.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 }
 
@@ -103,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
                             result.setText((bfPercent) + "%");
                         } catch(NumberFormatException nfe) {
                             System.out.println("Could not parse " + nfe);
+                            Toast.makeText(getApplicationContext(), "Round to Nearest cm.",
+                                    Toast.LENGTH_SHORT).show();
                         }
 
                     }
